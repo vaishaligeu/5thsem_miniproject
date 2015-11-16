@@ -111,7 +111,7 @@ int main()
         strcpy(o[33].mn,"STOL");
     o[33].bit=3;
     o[33].op=0xdc;
-    printf("done");
+
     return 1;
 }
 
