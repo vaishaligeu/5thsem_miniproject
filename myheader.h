@@ -1,14 +1,12 @@
-#include<stdio.h>
-#include<conio.h>
 #include<string.h>
 struct ins
 {
-    char mn[100];
+    char mn[20];
     int bit;
     int op;
-}o[33];
-int main()
-{
+}o[36];
+void opcode_func()
+   {
     strcpy(o[0].mn,"AD");
     o[0].bit=3;
     o[0].op=0x18;
@@ -111,21 +109,29 @@ int main()
         strcpy(o[33].mn,"STOL");
     o[33].bit=3;
     o[33].op=0xdc;
-
-    return 1;
+     strcpy(o[34].mn,"LODX");
+    o[34].bit=3;
+    o[34].op=0x04;
+      strcpy(o[35].mn,"TIX");
+    o[35].bit=3;
+    o[35].op=0x2c;
+     strcpy(o[36].mn,"RRSUB");
+    o[36].bit=3;
+    o[36].op=0x4c;
 }
+int search_opcode(char a[])
+{
+    int i;
+    for(i=0;i<=36;i++)
+    {
+        if(strcmp(o[i].mn,a)==0)
+        {
+            return o[i].bit;
+        }
 
+    }
+    return 0;
 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
