@@ -3,7 +3,7 @@ struct symtab
    char lab[20];
    int add;
    struct symtab * next;
-}*start=NULL;
+}*start=NULL,*invalid;
 typedef struct symtab symtab;
 void create(char l[],int a)
 {
@@ -26,7 +26,7 @@ void create(char l[],int a)
   }
 
 }
-int search_label(char l[])
+symtab * search_label(char l[])
 {
 int flag = 0;
 symtab *temp;
@@ -36,11 +36,12 @@ temp = start;
   {
     if(strcmp(temp->lab,l)==0)
     {
-    return(1); //Found
+    return(temp); //Found
     }
     temp = temp->next;
   }
 
 if(flag ==0)
-    return(0); // Not found
+    memset(invalid->lab,'\0',sizeof(invalid->lab));
+    return(invalid); // Not found
 }

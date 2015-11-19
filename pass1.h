@@ -43,7 +43,7 @@ int start_addr;
                 }
                 else
                 {
-                     if(strcmp(search_label(le)->lab,'\0')!=0)
+                    if(strcmp(search_label(le).lab,'\0')!=0)
                     {
                         printf("\nDUPLICATE ERROR\n");
                     }
@@ -129,11 +129,4 @@ int start_addr;
         pc=loc_coun-start_addr;
 
         return pc;
-}
-int main()
-{
-    int pc;
-    pc=pass_1("fi.txt");
-     printf("size is %x",pc);
-     return 1;
 }

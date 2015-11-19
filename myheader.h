@@ -4,7 +4,8 @@ struct ins
     char mn[20];
     int bit;
     int op;
-}o[36];
+}o[36],inv;
+
 void opcode_func()
    {
     strcpy(o[0].mn,"AD");
@@ -119,18 +120,20 @@ void opcode_func()
     o[36].bit=3;
     o[36].op=0x4c;
 }
-int search_opcode(char a[])
+struct ins search_opcode(char a[])
 {
     int i;
     for(i=0;i<=36;i++)
     {
         if(strcmp(o[i].mn,a)==0)
         {
-            return o[i].bit;
+            return o[i];
         }
 
     }
-    return 0;
+    inv.bit=0;
+inv.op=0;
+    return inv;
 
 }
 
