@@ -1,12 +1,13 @@
-4000			LODX			ZERO
-4003			LODA			ZERO
-4006			AD			TABLE,X
-4009			TIX			COUNT
-400c			JSLT			LOOP
-400f			STORA			TOTAL
-4012			RRSUB			-
-4015			RESW			1000
-7015			RESW			1
-7018			WORD			0
-701b			RESW			1
-701e			END			FIRST
+-			    	SUM				START			1000
+1000				FIRST			LODX			#4206
+1003				-				  LODA			ZERO
+1006				-				  AD			  TABLE,X
+1009				-				  TIX			  COUNT
+100c				-				  JSLT			LOOP
+100f				-				  STORA			TOTAL
+1012				-				  RRSUB			-
+1015				TABLE			RESW			1000
+4015				COUNT			RESW			1
+4018				ZERO			BYTE			X'F1'
+4019				TOTAL			RESW			1
+401c				-				  END			  SUM
