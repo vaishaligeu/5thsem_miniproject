@@ -1,0 +1,13 @@
+SUM        START      4000
+FIRST      LODX         #4206
+-          LODA        ZERO
+-          AD        TABLE,X
+-          TIX        COUNT
+-          JSLT        LOOP
+-          STORA        TOTAL
+-          RRSUB       -
+TABLE      RESW       1000
+COUNT      RESW       1
+ZERO       BYTE       X'F1'
+TOTAL      RESW       1
+-          END        SUM
