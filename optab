@@ -1,0 +1,188 @@
+#include<string.h>
+struct ins
+{
+    char mn[20];
+    int bit;
+    char opco[10];
+}o[36],inv;
+struct registr
+{
+    char n[10];
+    char val[10];
+}initi[9];
+void opcode_func()
+   {
+    strcpy(o[0].mn,"AD");
+    o[0].bit=3;
+    strcpy(o[0].opco,"18");
+     strcpy(o[1].mn,"ADF");
+    o[1].bit=3;
+    strcpy(o[1].opco,"58");
+     strcpy(o[2].mn,"ADR");//1
+    o[2].bit=2;
+    strcpy(o[2].opco,"90");
+     strcpy(o[3].mn,"AAND");
+    o[3].bit=3;
+    strcpy(o[3].opco,"40");
+     strcpy(o[4].mn,"CLRR");//2
+    o[4].bit=2;
+    strcpy(o[4].opco,"b4");
+     strcpy(o[5].mn,"CMPR");
+    o[5].bit=3;
+    strcpy(o[5].opco,"28");
+     strcpy(o[6].mn,"CMPRF");
+    o[6].bit=3;
+    strcpy(o[6].opco,"88");
+    strcpy(o[7].mn,"CMPRR");//3
+    o[7].bit=2;
+    strcpy(o[7].opco,"a0");
+     strcpy(o[8].mn,"DVSN");
+    o[8].bit=3;
+    strcpy(o[8].opco,"24");
+    strcpy(o[9].mn,"DVSNF");
+    o[9].bit=3;
+    strcpy(o[9].opco,"64");
+    strcpy(o[10].mn,"DVSNR");//4
+    o[10].bit=2;
+    strcpy(o[10].opco,"9c");
+     strcpy(o[11].mn,"JS");
+    o[11].bit=3;
+    strcpy(o[11].opco,"3c");
+     strcpy(o[12].mn,"JSEQ");
+    o[12].bit=3;
+    strcpy(o[12].opco,"30");
+     strcpy(o[13].mn,"JSGT");
+    o[13].bit=3;
+    strcpy(o[13].opco,"34");
+     strcpy(o[14].mn,"JSLT");
+    o[14].bit=3;
+    strcpy(o[14].opco,"38");
+     strcpy(o[15].mn,"JSSUB");
+    o[15].bit=3;
+    strcpy(o[15].opco,"48");
+     strcpy(o[16].mn,"LODA");
+    o[16].bit=3;
+    strcpy(o[16].opco,"00");
+     strcpy(o[17].mn,"LODB");
+    o[17].bit=3;
+     strcpy(o[17].opco,"68");
+    strcpy(o[18].mn,"LODCH");
+    o[18].bit=3;
+     strcpy(o[18].opco,"50");
+    strcpy(o[19].mn,"LODS");
+    o[19].bit=3;
+     strcpy(o[19].opco,"d0");
+    strcpy(o[20].mn,"MULPY");
+    o[20].bit=3;
+     strcpy(o[20].opco,"20");
+    strcpy(o[21].mn,"MULPYR");//5
+    o[21].bit=2;
+     strcpy(o[21].opco,"98");
+    strcpy(o[22].mn,"ORR");
+    o[22].bit=3;
+     strcpy(o[22].opco,"44");
+    strcpy(o[23].mn,"RRD");
+    o[23].bit=3;
+    strcpy(o[23].opco,"d8");
+    strcpy(o[24].mn,"SHRL");//6
+    o[24].bit=2;
+     strcpy(o[24].opco,"a4");
+    strcpy(o[25].mn,"SHRR");//7
+    o[25].bit=2;
+     strcpy(o[25].opco,"a8");
+      strcpy(o[26].mn,"STORA");
+    o[26].bit=3;
+     strcpy(o[26].opco,"0c");
+      strcpy(o[27].mn,"SUBTR");
+    o[27].bit=3;
+     strcpy(o[27].opco,"1c");
+      strcpy(o[28].mn,"SUBTRR");//8
+    o[28].bit=2;
+     strcpy(o[28].opco,"94");
+       strcpy(o[29].mn,"SVCC");//9
+    o[29].bit=2;
+     strcpy(o[29].opco,"b0");
+       strcpy(o[30].mn,"TIIO");
+    o[30].bit=1;
+     strcpy(o[30].opco,"f8");
+       strcpy(o[31].mn,"WDD");
+    o[31].bit=3;
+     strcpy(o[31].opco,"dc");
+        strcpy(o[32].mn,"STCH");
+    o[32].bit=3;
+     strcpy(o[32].opco,"54");
+        strcpy(o[33].mn,"STOL");
+    o[33].bit=3;
+     strcpy(o[33].opco,"dc");
+     strcpy(o[34].mn,"LODX");
+    o[34].bit=3;
+     strcpy(o[34].opco,"04");
+      strcpy(o[35].mn,"TIX");
+    o[35].bit=3;
+    strcpy(o[35].opco,"2c");
+     strcpy(o[36].mn,"RRSUB");
+    o[36].bit=3;
+    strcpy(o[36].opco,"4c");
+strcpy(initi[0].n,"A");
+    strcpy(initi[0].val,"0");
+    strcpy(initi[1].n,"X");
+    strcpy(initi[1].val,"1");
+    strcpy(initi[2].n,"L");
+    strcpy(initi[2].val,"2");
+    strcpy(initi[3].n,"PC");
+    strcpy(initi[3].val,"8");
+    strcpy(initi[4].n,"SW");
+  /*  strcpy(initi[4].val,"9");
+    strcpy(initi[5].n,"B");
+    strcpy(initi[5].val,"3");
+    strcpy(initi[6].n,"S");
+    strcpy(initi[6].val,"4");
+    strcpy(initi[7].n,"T");
+    strcpy(initi[7].val,"5");
+    strcpy(initi[8].n,"F");
+    strcpy(initi[8].val,"6");*/
+
+
+}
+struct ins search_opcode(char a[])
+{
+    int i;
+    for(i=0;i<=36;i++)
+    {
+        if(strcmp(o[i].mn,a)==0)
+        {
+            return o[i];
+        }
+
+    }
+    inv.bit=0;
+
+    return inv;
+
+}
+struct registr search_registr(char a[])
+{
+    struct registr temp;
+    int flag=0,i;
+    for(i=0;i<=8;i++)
+    {
+        if(strcmp(initi[i].n,a)==0)
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==1)
+    {
+        return initi[i];
+    }
+    else
+    {
+        strcpy(temp.val,"NULL");
+          strcpy(temp.n,"NULL");
+        return temp;
+    }
+}
+
+
+
